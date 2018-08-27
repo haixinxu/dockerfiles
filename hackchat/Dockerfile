@@ -23,7 +23,7 @@ RUN mkdir /main/origconf && \
     ln -s /tmp/config.json /main/server/config/config.json && \
     #rm -rf /var/lib/nginx/logs && \ 
     rm -rf /var/tmp && \
-    ln -sTf /dev/null /var/lib/nginx/logs/error.log && \
+    ln -sf /dev/null /var/lib/nginx/logs/error.log && \
     chmod 777 /var/lib/nginx/logs/error.log && \
     #ln -sTf /tmp /var/lib/nginx/logs && \
     ln -sTf /tmp /var/lib/nginx/proxy && \
