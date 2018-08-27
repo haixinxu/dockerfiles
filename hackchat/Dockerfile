@@ -16,10 +16,19 @@ RUN apk --no-cache add git nodejs nodejs-npm nginx        && \
 ADD config.json /main/server/config/config.json
 ADD nginx.conf  /etc/nginx/nginx.conf
 
+RUN mkdir /main/origconf && \
+    mv /main/client/client.js /main/origconf && \
+    mv /main/server/config/config.json /main/origconf
+
 WORKDIR /main/server
 EXPOSE 80
 
-CMD sed -i "s|ws://|${PROTOCOL}://|g"             /main/client/client.js          && \
+
+
+CMD cp /main/origconf/* /tmp && \
+    ln -s /tmp/client.js /main/client/client.js && \
+    ln -s /tmp/config.json/main/server/config/config.json &&\
+    sed -i "s|ws://|${PROTOCOL}://|g"             /main/client/client.js          && \
     sed -i "s/ADMIN_NAME/${ADMIN_NAME}/g"         /main/server/config/config.json && \
     sed -i "s/ADMIN_PASSWORD/${ADMIN_PASSWORD}/g" /main/server/config/config.json && \
     sed -i "s/PASSWORD_SALT/${PASSWORD_SALT}/g"   /main/server/config/config.json && \
