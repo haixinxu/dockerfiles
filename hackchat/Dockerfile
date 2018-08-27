@@ -33,6 +33,7 @@ ENV USER=chat
 
 CMD cp /main/origconf/* /tmp && \
     mkdir /var/tmp/nginx && \
+    mkdir /var/lib/nginx && \
     sed -i "s|ws://|${PROTOCOL}://|g"             /tmp/client.js   && \
     sed -i "s/ADMIN_NAME/${ADMIN_NAME}/g"         /tmp/config.json && \
     sed -i "s/ADMIN_PASSWORD/${ADMIN_PASSWORD}/g" /tmp/config.json && \
