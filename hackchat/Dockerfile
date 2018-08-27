@@ -21,7 +21,7 @@ RUN mkdir /main/origconf && \
     mv /main/server/config/config.json /main/origconf
 
 WORKDIR /main/server
-EXPOSE 80
+EXPOSE 8080
 
 USER chat
 ENV USER=chat
