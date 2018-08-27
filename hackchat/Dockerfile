@@ -20,14 +20,7 @@ RUN mkdir /main/origconf && \
     mv /main/client/client.js /main/origconf && \
     mv /main/server/config/config.json /main/origconf &&\
     ln -s /tmp/client.js /main/client/client.js && \
-    ln -s /tmp/config.json /main/server/config/config.json && \
-    #rm -rf /var/lib/nginx/logs && \ 
-    rm -rf /var/tmp && \
-    ln -sf /dev/null /var/lib/nginx/logs/error.log && \
-    chmod 777 /var/lib/nginx/logs/error.log && \
-    #ln -sTf /tmp /var/lib/nginx/logs && \
-    ln -sTf /tmp /var/lib/nginx/proxy && \
-    ln -sTf /tmp /var/tmp
+    ln -s /tmp/config.json /main/server/config/config.json
 
 WORKDIR /main/server
 EXPOSE 8080
