@@ -23,6 +23,7 @@ RUN mkdir /main/origconf && \
     ln -s /tmp/config.json /main/server/config/config.json && \
     rm -rf /var/lib/nginx/logs /var/tmp && \
     ln -s /tmp /var/lib/nginx/logs && \
+    ln -s /tmp /var/lib/nginx/proxy && \
     ln -s /tmp /var/tmp
 
 WORKDIR /main/server
@@ -33,7 +34,7 @@ ENV USER=chat
 
 CMD cp /main/origconf/* /tmp && \
     mkdir /var/tmp/nginx && \
-    mkdir /var/lib/nginx/proxy && \
+    #mkdir /var/lib/nginx/proxy && \
     sed -i "s|ws://|${PROTOCOL}://|g"             /tmp/client.js   && \
     sed -i "s/ADMIN_NAME/${ADMIN_NAME}/g"         /tmp/config.json && \
     sed -i "s/ADMIN_PASSWORD/${ADMIN_PASSWORD}/g" /tmp/config.json && \
