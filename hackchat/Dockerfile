@@ -23,7 +23,8 @@ RUN mkdir /main/origconf && \
 WORKDIR /main/server
 EXPOSE 80
 
-
+USER chat
+ENV USER=chat
 
 CMD cp /main/origconf/* /tmp && \
     ln -s /tmp/client.js /main/client/client.js && \
