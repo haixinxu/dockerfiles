@@ -20,8 +20,9 @@ RUN mkdir /main/origconf && \
     mv /main/client/client.js /main/origconf && \
     mv /main/server/config/config.json /main/origconf &&\
     ln -s /tmp/client.js /main/client/client.js && \
-    ln -s /tmp/config.json /main/server/config/config.json
-
+    ln -s /tmp/config.json /main/server/config/config.json && \
+    ln -s /tmp /var/lib/nginx/logs && \
+    ln -s /var/tmp
 WORKDIR /main/server
 EXPOSE 8080
 
