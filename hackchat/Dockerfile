@@ -29,8 +29,8 @@ USER chat
 ENV USER=chat
 
 CMD cp /main/origconf/* /tmp && \
-    sed -i "s|ws://|${PROTOCOL}://|g"             /main/client/client.js          && \
-    sed -i "s/ADMIN_NAME/${ADMIN_NAME}/g"         /main/server/config/config.json && \
-    sed -i "s/ADMIN_PASSWORD/${ADMIN_PASSWORD}/g" /main/server/config/config.json && \
-    sed -i "s/PASSWORD_SALT/${PASSWORD_SALT}/g"   /main/server/config/config.json && \
+    sed -i "s|ws://|${PROTOCOL}://|g"             /tmp/client.js          && \
+    sed -i "s/ADMIN_NAME/${ADMIN_NAME}/g"         /tmp/config.json && \
+    sed -i "s/ADMIN_PASSWORD/${ADMIN_PASSWORD}/g" /tmp/config.json && \
+    sed -i "s/PASSWORD_SALT/${PASSWORD_SALT}/g"   /tmp/config.json && \
     nginx && node main.js
