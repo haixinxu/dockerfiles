@@ -6,6 +6,6 @@ RUN apk --no-cache add nginx git && \
     apk del git && rm -rf /app/.git
 
 COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
+EXPOSE 8080
 
 CMD nginx -g "daemon off;"
