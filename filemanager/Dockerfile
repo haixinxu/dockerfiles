@@ -10,10 +10,12 @@ RUN apk --no-cache add curl && \
     chmod -R 777 /usr/bin/caddy /share /db && \
     apk del --purge curl
 
+RUN ln -s /tmp /.caddy
+
 USER fm
 ENV USER=fm
-
-CMD caddy -conf /Caddyfile
     
 WORKDIR /fm
 EXPOSE 8080
+
+CMD caddy -conf /Caddyfile
