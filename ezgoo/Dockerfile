@@ -12,5 +12,8 @@ RUN chmod +x /app/ezgoo
 WORKDIR /app
 EXPOSE 8080
 
+USER ezgoo
+ENV USER=ezgoo
+
 CMD cp -r /app/dist /tmp/dist && \
     /app/ezgoo -dir=/tmp/dist 
