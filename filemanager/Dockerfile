@@ -16,4 +16,4 @@ ENV USER=fm
 CMD caddy -conf /Caddyfile
     
 WORKDIR /fm
-EXPOSE 80
+EXPOSE 8080
