@@ -3,12 +3,11 @@ MAINTAINER FAN VINGA<fanalcest@gmail.com>
 
 ADD Caddyfile /Caddyfile
  
-RUN apk --no-cache add curl && \
+RUN apk --no-cache add curl git wget tar gzip bzip2 xz svn p7zip&& \
     curl "https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&license=personal&telemetry=off" | tar -xz caddy && \    
     mkdir -p /fm  && \
     mv caddy /usr/bin/caddy && \
-    chmod -R 777 /usr/bin/caddy && \
-    apk del --purge curl
+    chmod -R 777 /usr/bin/caddy
 
 RUN ln -s /tmp /.caddy
 
