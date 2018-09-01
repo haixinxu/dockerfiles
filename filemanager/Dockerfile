@@ -5,7 +5,7 @@ ADD Caddyfile /Caddyfile
  
 RUN apk --no-cache add curl && \
     curl "https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&license=personal&telemetry=off" | tar -xz caddy && \    
-    mkdir -p && \
+    mkdir -p /fm  && \
     mv caddy /usr/bin/caddy && \
     chmod -R 777 /usr/bin/caddy && \
     apk del --purge curl
