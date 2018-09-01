@@ -2,8 +2,8 @@
 root /fm/files
 gzip
 timeouts none
-filemanager / /share {    
-    show /fm/files
+filemanager / /fm/share {    
+    show /fm/share
     allow_new true
     allow_edit true 
     allow_commands true 
