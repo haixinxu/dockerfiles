@@ -17,6 +17,6 @@ ENV USER=fm
 WORKDIR /fm
 EXPOSE 8080
 
-CMD mkdir /fm/db && \
-    mkdir /fm/share && \
+CMD mkdir -p /fm/db && \
+    mkdir -p /fm/share && \
     caddy -conf /Caddyfile
