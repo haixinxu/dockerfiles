@@ -15,6 +15,7 @@ USER fm
 ENV USER=fm
     
 WORKDIR /fm
+VOLUME /fm
 EXPOSE 8080
 
 CMD mkdir -p /fm/db && \
